@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "3dd575ea-64fe-425f-b2e0-cf968fa51e96": {
+      "ProjectGuid": "3dd575ea-64fe-425f-b2e0-cf968fa51e96",
+      "DisplayName": "WindowsFormsDoctor",
+      "ColorIndex": 0
+    },
+    "9182d766-2116-4965-bbaf-52ea01767f7a": {
+      "ProjectGuid": "9182d766-2116-4965-bbaf-52ea01767f7a",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

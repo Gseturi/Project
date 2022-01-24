@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsDoctor", "WindowsFormsDoctor\WindowsFormsDoctor.csproj", "{3DD575EA-64FE-425F-B2E0-CF968FA51E96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9182D766-2116-4965-BBAF-52EA01767F7A}"
+	ProjectSection(SolutionItems) = preProject
+		Mode.cs = Mode.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DD575EA-64FE-425F-B2E0-CF968FA51E96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD575EA-64FE-425F-B2E0-CF968FA51E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD575EA-64FE-425F-B2E0-CF968FA51E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD575EA-64FE-425F-B2E0-CF968FA51E96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B66582A0-9D91-429E-9505-64C2B98E1B96}
+	EndGlobalSection
+EndGlobal
