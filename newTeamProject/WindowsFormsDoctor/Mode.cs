@@ -15,7 +15,7 @@ namespace WindowsFormsDoctor
         public static void SwitchMode()
         {
             
-            YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
+            YourInfo.Load("../../YourInfo.xml");
             
            
 
@@ -29,12 +29,12 @@ namespace WindowsFormsDoctor
                 Light = true;
             }
             YourInfo.SelectSingleNode("User/BackGround").InnerText = Light.ToString();
-            YourInfo.Save("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
+            YourInfo.Save("../../YourInfo.xml");
         }
         public static void ChangeBackground(Control.ControlCollection container)
         {
             bool temp = true; 
-            YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
+            YourInfo.Load("../../YourInfo.xml");
             if (YourInfo.SelectSingleNode("User/BackGround").InnerText=="True")
             {
                 temp = true;

@@ -53,10 +53,10 @@ namespace WindowsFormsDoctor
             DataRow[] temp = x.Select();
             string y = temp[0][0].ToString();
             YourInfo = new XmlDocument();
-            YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
+            YourInfo.Load("../../YourInfo.xml");
             string xs = y + "," + YourInfo.SelectSingleNode("User/rooms").InnerText;
             YourInfo.SelectSingleNode("User/rooms").InnerText = xs;
-            YourInfo.Save("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
+            YourInfo.Save("../../YourInfo.xml");
             SqlCom.SendMessege(int.Parse(y), "Help" , RegStatusBox.SelectedItem.ToString(), richTextBox2.Text);
         }
         

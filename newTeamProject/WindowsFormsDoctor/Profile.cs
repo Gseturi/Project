@@ -26,7 +26,7 @@ namespace WindowsFormsDoctor
         private void Profile_Load(object sender, EventArgs e)
         {
             YourInfo = new XmlDocument();
-            YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
+            YourInfo.Load("../../YourInfo.xml");
             label_profileName.Text = YourInfo.SelectSingleNode("User/Username").InnerText;
             label_profileDialogNumb.Text = YourInfo.SelectSingleNode("User/Name").InnerText+" "+YourInfo.SelectSingleNode("User/LastName").InnerText;
             textBox_profile.Text = YourInfo.SelectSingleNode("User/Bio").InnerText;

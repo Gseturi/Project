@@ -282,7 +282,7 @@ namespace Exampleproject
             Command.CommandType = CommandType.StoredProcedure;
             SqlParameter param = new SqlParameter("@id",SqlDbType.Int);
             XmlDocument YourInfo = new XmlDocument();
-            YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
+            YourInfo.Load("../../YourInfo.xml");
             param.Value = YourInfo.SelectSingleNode("User/Id").InnerText;
             Command.Parameters.Add(param);
             connection.Open();
@@ -305,7 +305,7 @@ namespace Exampleproject
             param[0] = new SqlParameter("@id", SqlDbType.Int);
             param[1] = new SqlParameter("@id_p", SqlDbType.Int);
             XmlDocument YourInfo = new XmlDocument();
-            YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
+            YourInfo.Load("../../YourInfo.xml");
             List<DataTable> holder = new List<DataTable>();
             DataTable temp = new DataTable();
             
@@ -322,6 +322,28 @@ namespace Exampleproject
             }
             
             return holder;
+        }
+
+        public static List<string> GetInteractionId()
+        {
+            XmlDocument YourInfo = new XmlDocument();
+            YourInfo.Load("../../YourInfo.xml");
+            string x = YourInfo.SelectSingleNode("User/rooms").InnerText;
+            List<string> ret = new List<string>();
+            string temp="";
+            for(int i = 0; i < x.Length; i++)
+            {
+                if (x[i] != ',')
+                {
+                    temp = temp + x[i];
+                }else if (x[i] == ',')
+                {
+                    ret.Add(temp);
+                    temp = "";
+                }
+            }
+
+            return ret;
         }
     }
 }
