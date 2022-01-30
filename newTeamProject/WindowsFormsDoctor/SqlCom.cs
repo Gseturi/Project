@@ -216,12 +216,46 @@ namespace Exampleproject
             }
             return Values;
         }
+        public static List<string> GetMessegesR(string username)
+        {
 
+
+            List<String> Values = new List<String>();
+            //აქ სადაც ამ შემთხვევაში ვწერ სახელს უნდა შეიქმნას xml ის ფაილი სადაც შენ ინფორმაციას შეინსახავ და ავტომატურად ჩაიწერება შენი სახელი
+            string myname = username;
+           
+                
+                connection = new SqlConnection(conecstring);
+                Command = new SqlCommand("GetMessegesR", connection);
+                Command.CommandType = CommandType.StoredProcedure;
+                SqlParameter param = new SqlParameter("@Username", SqlDbType.VarChar);
+            //string hold = Encrypte.Encrypt(username);
+            string hold = username;
+                param.Value = hold;
+
+                Command.Parameters.Add(param);
+                connection.Open();
+                Command.ExecuteNonQuery();
+                connection.Close();
+
+               
+                Table = new DataTable();
+                Adapter = new SqlDataAdapter(Command);
+                Adapter.Fill(Table);
+                DataRow[] temp = Table.Select();
+                Values.Add(temp[0][0].ToString());
+                Values.Add(temp[1][0].ToString());
+                Values.Add(temp[2][0].ToString());
+                DeleteM(myname);
+            
+            return Values;
+        }
         public static void SendMessege(int id, string type, string setto, string messege)
         {
             //მესსიჯს აგზავნის
             connection = new SqlConnection(conecstring);
-            Command = new SqlCommand("SendMessege", connection);
+            // Command = new SqlCommand("SendMessege", connection);
+            Command = new SqlCommand("SendMessegeR", connection);
             Command.CommandType = CommandType.StoredProcedure;
             SqlParameter[] param = new SqlParameter[4];
             param[0] = new SqlParameter("@Id", SqlDbType.VarChar);
@@ -313,12 +347,14 @@ namespace Exampleproject
                
                 param[0].Value = x[i];
                 param[1].Value = YourInfo.SelectSingleNode("User/Id").InnerText;
+                Command.Parameters.AddRange(param);
                 connection.Open();
                 Command.ExecuteNonQuery();
                 connection.Close();
                 Adapter = new SqlDataAdapter(Command);
                 Adapter.Fill(temp);
                 holder.Add(temp);
+                Command.Parameters.Clear();
             }
             
             return holder;
@@ -345,5 +381,36 @@ namespace Exampleproject
 
             return ret;
         }
+
+        public static Dictionary<int,string> GetHelpReq()
+        {
+            connection = new SqlConnection(conecstring);
+            Command = new SqlCommand("Gethelp", connection);
+            Command.CommandType = CommandType.StoredProcedure;
+            SqlParameter param = new SqlParameter("@speciality", SqlDbType.VarChar);
+
+            DataTable temp = new DataTable();
+            XmlDocument YourInfo = new XmlDocument();
+            YourInfo.Load("../../YourInfo.xml");
+            param.Value = YourInfo.SelectSingleNode("User/Bio");
+            Command.Parameters.Add(param);
+            connection.Open();
+            Command.ExecuteNonQuery();
+            connection.Close();
+
+            Adapter = new SqlDataAdapter(Command);
+            Adapter.Fill(temp);
+
+            
+
+            Dictionary<int, string> retu = new Dictionary<int, string>();
+            for(int i = 0; i < temp.Rows.Count; i++)
+            {
+                retu.Add(int.Parse(temp.Rows[i][0].ToString()), temp.Rows[i][3].ToString());
+            }
+            return retu;
+        }
+
+       
     }
 }

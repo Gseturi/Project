@@ -36,8 +36,15 @@ namespace WindowsFormsDoctor
             // YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
             YourInfo.Load("../../YourInfo.xml");
             Mode.ChangeBackground(this.Controls);
-        }
+            TEST();
 
+        }
+        public void TEST()
+        {
+           // SqlCom.SendMessege(123, "eee", "eee", "eee");
+           string y= Encrypte.Decrypt("YE9kNjSPutI=");
+          //  List<string> x= SqlCom.GetMessegesR(y);
+        }
         private void RegFirstnameBox_TextChanged(object sender, EventArgs e)
         {
             
@@ -107,8 +114,10 @@ namespace WindowsFormsDoctor
         {
            if( SqlCom.FechDoctor(LogUsernameBox.Text, LogPassBox.Text) != true)
             {
-                
+                var asd = SqlCom.GetInteraction(SqlCom.GetInteractionId());
+              
                DataRow[] x = SqlCom.FechDoctorInfo(LogUsernameBox.Text, LogPassBox.Text).Select();
+
                RegConfirmPassBox.Text = x[0][1].ToString();
                 XmlDocument YourInfo = new XmlDocument();
                 // YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
@@ -152,9 +161,9 @@ namespace WindowsFormsDoctor
            if(SqlCom.FechPatient(LogUsernameBox.Text, LogPassBox.Text) != true)
             {
 
-                SqlCom.GetInteractionId();
+                
                DataRow[] x= SqlCom.FechPatientInfo(LogUsernameBox.Text, LogPassBox.Text).Select();
-                RegConfirmPassBox.Text = x[0][1].ToString();
+                RegConfirmPassBox.Text = x.ToString();
                 XmlDocument YourInfo = new XmlDocument();
                 // YourInfo.Load("C://Users//User//OneDrive//Desktop//Project//newTeamProject//WindowsFormsDoctor//YourInfo.xml");
                 YourInfo.Load("../../YourInfo.xml");

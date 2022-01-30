@@ -57,7 +57,7 @@ namespace WindowsFormsDoctor
             string xs = y + "," + YourInfo.SelectSingleNode("User/rooms").InnerText;
             YourInfo.SelectSingleNode("User/rooms").InnerText = xs;
             YourInfo.Save("../../YourInfo.xml");
-            SqlCom.SendMessege(int.Parse(y), "Help" , RegStatusBox.SelectedItem.ToString(), richTextBox2.Text);
+            SqlCom.SendMessege(int.Parse(y), RegStatusBox.SelectedItem.ToString(),"Help", richTextBox2.Text);
         }
         
         private void richTextBox2_TextChanged(object sender, EventArgs e)
